@@ -6,7 +6,7 @@ import zipfile
 class PutFileRESTView(APIView):
 
     def put(self, request, *args, **kwargs):
-        zip_file = request.PUT('zip_file')
+        zip_file = request.PUT['zip_file']
         zip_ref = zipfile.ZipFile(zip_file, 'r')
         zip_ref.extractall('directory_to_extract_to')
         zip_ref.close()
